@@ -7,42 +7,65 @@
 <link rel="stylesheet" type="text/css"
 	href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
 
-<!-- 
-	<spring:url value="/css/main.css" var="springCss" />
-	<link href="${springCss}" rel="stylesheet" />
-	 -->
 <c:url value="/css/main.css" var="jstlCss" />
 <link href="${jstlCss}" rel="stylesheet" />
 
 </head>
 <body>
 
-	<nav class="navbar navbar-inverse">
-		<div class="container">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Spring Boot</a>
-			</div>
-			<div id="navbar" class="collapse navbar-collapse">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#about">About</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-
 	<div class="container">
+		<div id="loginbox" style="margin-top: 50px;"
+			class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+			<div class="panel panel-danger">
+				<div class="panel panel-heading">
+					<div class="panel-title text-center">Relatório de Positivação</div>
+				</div>
 
-		<div class="starter-template">
-			<h1>Spring Boot Web JSP Example</h1>
-			<h2>Message: ${message}</h2>
+				<div style="padding-top: 30px" class="panel-body">
+
+					<div style="display: none" id="login-alert"
+						class="alert alert-danger col-sm-12"></div>
+
+					<form id="loginform" class="form-horizontal" role="form">
+
+						<div style="margin-bottom: 25px" class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-calendar"></i></span> <input id="data-final"
+								type="date" class="form-control" name="data-final"
+								placeholder="01/01/2017">
+						</div>
+
+						<div style="margin-bottom: 25px" class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-calendar"></i></span> <input id="data-inicial"
+								type="date" class="form-control" name="data-inicial"
+								placeholder="01/01/2017">
+						</div>
+						
+						<div style="margin-bottom: 25px" class="input-group">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-menu-down"></i></span>
+							<select name="laboratorio" class="form-control">
+<%-- 						         <c:forEach var="item" items="${dept}"> --%>
+						           <option value="001">Delboni</option>
+						           <option value="002">Lavoisier</option>
+<%-- 						         </c:forEach> --%>
+					       	</select>
+						</div>
+
+
+						<div style="margin-top: 10px" class="form-group">
+							<!-- Button -->
+							<div class="col-sm-12 controls">
+								 <a id="btn-fblogin" href="#" class="btn btn-danger">Gerar Relatório</a>
+							</div>
+						</div>
+
+					</form>
+
+				</div>
+			</div>
 		</div>
-
 	</div>
-	<!-- /.container -->
-
-	<script type="text/javascript"
-		src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </body>
 
